@@ -1,0 +1,36 @@
+[submodule "repos/anthropics-skills"]
+	path = repos/anthropics-skills
+	url = https://github.com/anthropics/skills.git
+	branch = main
+[submodule "repos/vercel-agent-skills"]
+	path = repos/vercel-agent-skills
+	url = https://github.com/vercel-labs/agent-skills.git
+	branch = main
+[submodule "repos/vercel-agent-browser"]
+	path = repos/vercel-agent-browser
+	url = https://github.com/vercel-labs/agent-browser.git
+	branch = main
+[submodule "repos/mattpocock-skills"]
+	path = repos/mattpocock-skills
+	url = https://github.com/mattpocock/skills.git
+	branch = main
+[submodule "repos/addyosmani-agent-skills"]
+	path = repos/addyosmani-agent-skills
+	url = https://github.com/addyosmani/agent-skills.git
+	branch = main
+[submodule "repos/ui-ux-pro-max-skill"]
+	path = repos/ui-ux-pro-max-skill
+	url = https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
+	branch = main
+[submodule "repos/supabase-agent-skills"]
+	path = repos/supabase-agent-skills
+	url = https://github.com/supabase/agent-skills.git
+	branch = main
+[submodule "repos/cloudflare-skills"]
+	path = repos/cloudflare-skills
+	url = https://github.com/cloudflare/skills.git
+	branch = main
+[submodule "repos/obsidian-skills"]
+	path = repos/obsidian-skills
+	url = https://github.com/obsidianmd/obsidian-skills.git
+	branch = main

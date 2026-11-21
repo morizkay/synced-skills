@@ -1,0 +1,160 @@
+name: Sync Upstream Skills
+
+on:
+  schedule:
+    # Every Monday at 09:00 UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-upstream-skills
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Record current submodule commits
+        run: |
+          git submodule status | awk '{gsub(/^[-+U ]/, "", $1); print $2 " " $1}' > /tmp/before.txt
+
+      - name: Update submodules to latest remote commits
+        run: |
+          git submodule update --remote --merge
+
+      - name: Regenerate catalog and validate skills & presets
+        id: catalog
+        run: |
+          set +e
+          OUTPUT=$(node scripts/generate-catalog.mjs 2>&1)
+          STATUS=$?
+          echo "$OUTPUT"
+          {
+            echo "status=$STATUS"
+            echo "output<<EOF"
+            echo "$OUTPUT"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Check for changes and prepare PR body
+        id: diff
+        run: |
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No upstream changes detected."
+            exit 0
+          fi
+
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          git submodule status | awk '{gsub(/^[-+U ]/, "", $1); print $2 " " $1}' > /tmp/after.txt
+
+          node -e '
+            const fs = require("fs");
+            const before = Object.fromEntries(
+              fs.readFileSync("/tmp/before.txt", "utf8").trim().split("\n").filter(Boolean).map(l => l.split(" "))
+            );
+            const after = Object.fromEntries(
+              fs.readFileSync("/tmp/after.txt", "utf8").trim().split("\n").filter(Boolean).map(l => l.split(" "))
+            );
+            const gm = fs.readFileSync(".gitmodules", "utf8");
+            const urls = {};
+            let curPath = null;
+            for (const line of gm.split(/\r?\n/)) {
+              const mp = line.match(/^\s*path\s*=\s*(.+)$/);
+              if (mp) curPath = mp[1].trim();
+              const mu = line.match(/^\s*url\s*=\s*(.+)$/);
+              if (mu && curPath) {
+                urls[curPath] = mu[1].trim().replace(/\.git$/, "");
+              }
+            }
+
+            const rows = [];
+            for (const [p, newSha] of Object.entries(after)) {
+              const oldSha = before[p];
+              if (oldSha && oldSha !== newSha) {
+                const url = urls[p] || "";
+                const slug = url.replace(/^https?:\/\/github\.com\//, "") || p;
+                const link = url ? `[${oldSha.slice(0, 7)}...${newSha.slice(0, 7)}](${url}/compare/${oldSha}...${newSha})` : `${oldSha.slice(0, 7)}...${newSha.slice(0, 7)}`;
+                rows.push(`| [${slug}](${url}) | ${link} |`);
+              }
+            }
+
+            const lines = [
+              "## Upstream Skill Updates",
+              "",
+              "Automated weekly sync of upstream skill submodules. Review upstream diffs via the compare links below before merging.",
+              "",
+            ];
+
+            if (rows.length > 0) {
+              lines.push("| Repository | Diff |", "| --- | --- |", ...rows, "");
+            } else {
+              lines.push("_Catalog metadata regenerated without submodule pointer changes._", "");
+            }
+
+            const valStatus = process.env.CATALOG_STATUS;
+            if (valStatus && valStatus !== "0") {
+              lines.push(
+                "> [!WARNING]",
+                "> Catalog/preset validation reported issues (an upstream skill in `presets.json` may have been renamed or removed):",
+                "```",
+                process.env.CATALOG_OUTPUT || "",
+                "```",
+                ""
+              );
+            }
+
+            fs.writeFileSync("/tmp/pr-body.md", lines.join("\n"));
+          '
+        env:
+          CATALOG_STATUS: ${{ steps.catalog.outputs.status }}
+          CATALOG_OUTPUT: ${{ steps.catalog.outputs.output }}
+
+      - name: Push sync branch and open or update Pull Request
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="sync/update-skills"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout -B "$BRANCH"
+          git add -A
+          git commit -m "chore(sync): update upstream skill submodules"
+          git push --force-with-lease origin "$BRANCH"
+
+          EXISTING_PR=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [[ -n "$EXISTING_PR" ]]; then
+            gh pr edit "$EXISTING_PR" \
+              --title "chore(sync): update upstream skill submodules" \
+              --body-file /tmp/pr-body.md
+          else
+            gh pr create \
+              --base main \
+              --head "$BRANCH" \
+              --title "chore(sync): update upstream skill submodules" \
+              --body-file /tmp/pr-body.md
+          fi
+
+      - name: Fail job if catalog validation failed
+        if: steps.catalog.outputs.status != '0'
+        run: |
+          echo "Catalog or preset validation failed (see PR description for details)." >&2
+          exit 1

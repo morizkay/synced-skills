@@ -1,0 +1,28 @@
+name: Validate Skills & Presets
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate skills, frontmatter, presets, and catalog
+        run: |
+          node scripts/generate-catalog.mjs
+          if [[ -n "$(git diff -- CATALOG.md)" ]]; then
+            echo "CATALOG.md is out of date. Run 'node scripts/generate-catalog.mjs' and commit the result." >&2
+            exit 1
+          fi

@@ -1,0 +1,104 @@
+{
+  "presets": {
+    "core": {
+      "description": "Essential daily-driver engineering, planning, debugging, UI, and browser skills (~21 skills)",
+      "skills": [
+        "grill-me",
+        "tdd",
+        "to-spec",
+        "implement-spec",
+        "code-review",
+        "diagnosing-bugs",
+        "improve-codebase-architecture",
+        "handoff",
+        "pr",
+        "frontend-design",
+        "skill-creator",
+        "mcp-builder",
+        "webapp-testing",
+        "agent-browser",
+        "vercel-react-best-practices",
+        "web-design-guidelines",
+        "spec-driven-development",
+        "debugging-and-error-recovery",
+        "security-and-hardening",
+        "code-simplification",
+        "ui-ux-pro-max"
+      ]
+    },
+    "frontend": {
+      "description": "UI/UX design, React, Next.js, React Native, accessibility, and browser testing",
+      "skills": [
+        "frontend-design",
+        "web-artifacts-builder",
+        "webapp-testing",
+        "theme-factory",
+        "canvas-design",
+        "vercel-react-best-practices",
+        "vercel-composition-patterns",
+        "vercel-react-native-skills",
+        "vercel-react-view-transitions",
+        "web-design-guidelines",
+        "agent-browser",
+        "ui-ux-pro-max",
+        "ui-styling",
+        "design-system",
+        "design",
+        "brand",
+        "banner-design",
+        "slides",
+        "frontend-ui-engineering",
+        "accessibility-engineering",
+        "browser-testing-with-devtools",
+        "performance-optimization"
+      ]
+    },
+    "cloud": {
+      "description": "Supabase/Postgres, Cloudflare Workers/Durable Objects, Vercel deployment, CI/CD, and security",
+      "skills": [
+        "supabase",
+        "supabase-postgres-best-practices",
+        "cloudflare",
+        "workers-best-practices",
+        "workers-development",
+        "durable-objects",
+        "wrangler",
+        "nextjs-on-cloudflare",
+        "agents-sdk",
+        "web-perf",
+        "deploy-to-vercel",
+        "vercel-optimize",
+        "ci-cd-and-automation",
+        "observability-and-instrumentation",
+        "security-and-hardening"
+      ]
+    },
+    "docs": {
+      "description": "PDF, DOCX, PPTX, XLSX, technical writing, ADRs, and agent docs",
+      "skills": [
+        "pdf",
+        "docx",
+        "pptx",
+        "xlsx",
+        "doc-coauthoring",
+        "internal-comms",
+        "brand-guidelines",
+        "writing-guidelines",
+        "documentation-and-adrs",
+        "writing-for-agents"
+      ]
+    },
+    "obsidian": {
+      "description": "Obsidian vault workflows: Markdown, Bases, JSON Canvas, CLI, and web clipping",
+      "skills": [
+        "obsidian-markdown",
+        "obsidian-bases",
+        "json-canvas",
+        "obsidian-cli",
+        "obsidian-headless",
+        "defuddle",
+        "knap"
+      ]
+    }
+  }
+}
