@@ -9,6 +9,8 @@
     "./repos/ui-ux-pro-max-skill/.claude/skills",
     "./repos/supabase-agent-skills/skills",
     "./repos/cloudflare-skills/skills",
-    "./repos/obsidian-skills/plugins/obsidian/skills"
+    "./repos/obsidian-skills/plugins/obsidian/skills",
+    "./repos/midtrans-agent-skills",
+    "./repos/stripe-ai/skills"
   ]
 }

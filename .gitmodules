@@ -34,3 +34,11 @@
 	path = repos/obsidian-skills
 	url = https://github.com/obsidianmd/obsidian-skills.git
 	branch = main
+[submodule "repos/midtrans-agent-skills"]
+	path = repos/midtrans-agent-skills
+	url = https://github.com/veritrans/midtrans-agent-skills.git
+	branch = main
+[submodule "repos/stripe-ai"]
+	path = repos/stripe-ai
+	url = https://github.com/stripe/ai.git
+	branch = main
