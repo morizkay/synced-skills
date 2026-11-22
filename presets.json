@@ -112,6 +112,30 @@
         "metronome",
         "stripe-apps"
       ]
+    },
+    "aiforui": {
+      "description": "Emil Kowalski's AI Skills for UI (aiforui.dev/skills): design engineering, motion, choreography, gestures, mobile polish, and reviews",
+      "skills": [
+        "animation-vocabulary",
+        "pick-ui-library",
+        "prototype",
+        "ask-emil",
+        "emil-design-eng",
+        "animate",
+        "choreograph",
+        "apple-design",
+        "gestures",
+        "mobile-native",
+        "animation-performance",
+        "break-ui",
+        "review-animations",
+        "find-animation-opportunities",
+        "improve-animations",
+        "remove-animations",
+        "animate-expo",
+        "ask-sonner",
+        "learn-taste"
+      ]
     }
   }
 }

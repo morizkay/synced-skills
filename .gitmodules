@@ -42,3 +42,7 @@
 	path = repos/stripe-ai
 	url = https://github.com/stripe/ai.git
 	branch = main
+[submodule "repos/emilkowalski-skills"]
+	path = repos/emilkowalski-skills
+	url = https://github.com/emilkowalski/skills.git
+	branch = main

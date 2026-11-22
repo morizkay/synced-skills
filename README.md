@@ -62,6 +62,7 @@ Defined in [`presets.json`](presets.json) (run `./install.sh --list` to inspect 
 | `docs` | PDF, DOCX, PPTX, XLSX, doc co-authoring, ADRs, and technical/agent writing |
 | `obsidian` | Obsidian Markdown, Bases, JSON Canvas, Obsidian CLI, and web clipping |
 | `payments` | Midtrans (Snap, Core API, BI-SNAP, QRIS, GoPay) and Stripe (Checkout, Billing, Connect, Metronome, Apps, Docs) |
+| `aiforui` | Emil Kowalski's AI Skills for UI ([aiforui.dev/skills](https://aiforui.dev/skills)): design engineering, motion, choreography, gestures, mobile polish, and animation reviews |
 | `all` | Every discoverable skill in this repository |
 
 See **[`CATALOG.md`](CATALOG.md)** for the full auto-generated list of all skills and their descriptions.
@@ -83,6 +84,7 @@ See **[`CATALOG.md`](CATALOG.md)** for the full auto-generated list of all skill
 | `repos/obsidian-skills` | [obsidianmd/obsidian-skills](https://github.com/obsidianmd/obsidian-skills) | Obsidian Markdown, Bases, JSON Canvas, CLI, headless, `defuddle` |
 | `repos/midtrans-agent-skills` | [veritrans/midtrans-agent-skills](https://github.com/veritrans/midtrans-agent-skills) | Official Midtrans payment integration (`integrate-midtrans-payments`: Snap, Core API, BI-SNAP, QRIS, GoPay, VA, webhooks) |
 | `repos/stripe-ai` | [stripe/ai](https://github.com/stripe/ai) | Official Stripe skills (`stripe-best-practices`, `stripe-docs`, `stripe-implementation-planner`, Connect, Metronome, Stripe Apps) |
+| `repos/emilkowalski-skills` | [emilkowalski/skills](https://github.com/emilkowalski/skills) | AI Skills for UI ([aiforui.dev/skills](https://aiforui.dev/skills)): `emil-design-eng`, `animate`, `choreograph`, `gestures`, `apple-design`, `mobile-native`, `break-ui`, `prototype`, `review-animations`, `animate-expo` |
 
 ---
 

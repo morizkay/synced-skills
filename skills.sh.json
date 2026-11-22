@@ -3,6 +3,7 @@
     "./repos/anthropics-skills/skills",
     "./repos/vercel-agent-skills/skills",
     "./repos/vercel-agent-browser/skills",
+    "./repos/emilkowalski-skills/skills",
     "./repos/mattpocock-skills/skills/engineering",
     "./repos/mattpocock-skills/skills/productivity",
     "./repos/addyosmani-agent-skills/skills",
