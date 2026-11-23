@@ -13,6 +13,16 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP_DIRS = new Set(['.git', 'node_modules', 'dist', 'build', '__pycache__']);
 const MAX_CONTAINER_DEPTH = 3;
 
+// Upstream skills intentionally shadowed by an earlier entry in skills.sh.json
+// (matches `npx skills` first-path-wins deduplication while still failing on
+// unexpected new collisions).
+const ALLOWED_SHADOWS = new Map([
+  [
+    'repos/mattpocock-skills/skills/engineering/prototype',
+    'repos/emilkowalski-skills/skills/prototype',
+  ],
+]);
+
 function parseFrontmatter(content) {
   const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!match) return null;
@@ -194,8 +204,12 @@ function main() {
       }
 
       if (seenNames.has(fm.name)) {
+        const winnerPath = seenNames.get(fm.name);
+        if (ALLOWED_SHADOWS.get(relSkillPath) === winnerPath) {
+          continue;
+        }
         errors.push(
-          `Duplicate skill name "${fm.name}" found in ${relSkillPath} (already defined in ${seenNames.get(fm.name)})`
+          `Duplicate skill name "${fm.name}" found in ${relSkillPath} (already defined in ${winnerPath})`
         );
         continue;
       }

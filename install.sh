@@ -26,6 +26,8 @@ Presets:
   cloud       Supabase/Postgres, Cloudflare Workers, Vercel, CI/CD & security
   docs        PDF, DOCX, PPTX, XLSX, ADRs & technical writing
   obsidian    Obsidian vault Markdown, Bases, Canvas & CLI workflows
+  payments    Midtrans & Stripe payment gateway integrations
+  aiforui     Emil Kowalski's AI Skills for UI (aiforui.dev/skills)
   all         Install every discoverable skill in the repository
 
 Options:
