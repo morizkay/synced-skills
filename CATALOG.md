@@ -23,15 +23,15 @@
 | --- | ---: | --- |
 | [anthropics/skills](https://github.com/anthropics/skills) | 19 | [`e4bb5d9`](https://github.com/anthropics/skills/commit/e4bb5d9) |
 | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | 9 | [`5a37a63`](https://github.com/vercel-labs/agent-skills/commit/5a37a63) |
-| [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) | 1 | [`5aad200`](https://github.com/vercel-labs/agent-browser/commit/5aad200) |
+| [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) | 1 | [`3a83e3cf`](https://github.com/vercel-labs/agent-browser/commit/3a83e3cf) |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | 26 | [`abeeaf9`](https://github.com/mattpocock/skills/commit/abeeaf9) |
 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 26 | [`8c99fa3`](https://github.com/addyosmani/agent-skills/commit/8c99fa3) |
-| [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 7 | [`2de1134`](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/2de1134) |
+| [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 7 | [`e8b065f`](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/e8b065f) |
 | [supabase/agent-skills](https://github.com/supabase/agent-skills) | 2 | [`c9be0e9`](https://github.com/supabase/agent-skills/commit/c9be0e9) |
 | [cloudflare/skills](https://github.com/cloudflare/skills) | 22 | [`5108325`](https://github.com/cloudflare/skills/commit/5108325) |
 | [obsidianmd/obsidian-skills](https://github.com/obsidianmd/obsidian-skills) | 7 | [`b110b2f`](https://github.com/obsidianmd/obsidian-skills/commit/b110b2f) |
 | [veritrans/midtrans-agent-skills](https://github.com/veritrans/midtrans-agent-skills) | 1 | [`7c4ae7b`](https://github.com/veritrans/midtrans-agent-skills/commit/7c4ae7b) |
-| [stripe/ai](https://github.com/stripe/ai) | 11 | [`1bb4869`](https://github.com/stripe/ai/commit/1bb4869) |
+| [stripe/ai](https://github.com/stripe/ai) | 11 | [`2815b93`](https://github.com/stripe/ai/commit/2815b93) |
 | [emilkowalski/skills](https://github.com/emilkowalski/skills) | 20 | [`64eb3de`](https://github.com/emilkowalski/skills/commit/64eb3de) |
 
 ## [anthropics/skills](https://github.com/anthropics/skills) (`e4bb5d9`)
@@ -72,7 +72,7 @@
 | `web-design-guidelines` | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX… |
 | `writing-guidelines` | Review docs/prose for Writing Guidelines compliance. Use when asked to "review my docs", "check writing style", "audit prose", "review docs… |
 
-## [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) (`5aad200`)
+## [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) (`3a83e3cf`)
 
 | Skill | Description |
 | --- | --- |
@@ -165,7 +165,7 @@
 | `test-driven-development` | Drives development with tests using the red-green-refactor loop. Use when implementing any logic, fixing any bug, or changing any behavior.… |
 | `using-agent-skills` | Discovers and invokes agent skills. Use when starting a session, or when you need to decide which skill or workflow applies to the piece of… |
 
-## [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (`2de1134`)
+## [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (`e8b065f`)
 
 | Skill | Description |
 | --- | --- |
@@ -229,7 +229,7 @@
 | --- | --- |
 | `integrate-midtrans-payments` | Guides Midtrans payment gateway integrations end to end: product selection, implementation, debugging, review, and sandbox verification. Us… |
 
-## [stripe/ai](https://github.com/stripe/ai) (`1bb4869`)
+## [stripe/ai](https://github.com/stripe/ai) (`2815b93`)
 
 | Skill | Description |
 | --- | --- |
